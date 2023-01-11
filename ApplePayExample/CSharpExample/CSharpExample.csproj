@@ -1,9 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'ApplePayExample' " />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <NoStdLib>true</NoStdLib>
+    <NoStdLib>true</NoStdLib>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <NoStdLib></NoStdLib>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Remove="Controllers\ApplePay\HpsPaymentAuthorizedController.cs" />
     <Compile Remove="Controllers\ApplePay\HpsValidateMerchantController.cs" />
